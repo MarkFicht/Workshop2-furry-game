@@ -38,7 +38,10 @@ function Game() {
 
     //--- hide furry on board
     this.hideVisibleFurry = function () {
-        document.querySelector('.furry').removeAttribute('class');
+        // document.querySelector('.furry').removeAttribute('class');
+        var hideFurry = document.querySelector('.furry');
+        hideFurry.classList.remove('furry');
+
     }
 
 
@@ -64,6 +67,7 @@ function Game() {
         }
 
         this.showFurry();
+        this.checkCoinCollision();
     }
 
 
@@ -88,6 +92,22 @@ function Game() {
     document.addEventListener('keydown', function (event) {
         self.turnFurry(event);
     });
+
+
+    //--- check collision
+    this.checkCoinCollision = function () {
+        if ((this.furry.x === this.coin.x) && (this.furry.y === this.coin.y)) {
+
+            var coinPosition = document.querySelector('.coin');
+            coinPosition.classList.remove('coin');
+
+            this.score++;
+            document.querySelector('#score strong').innerHTML = this.score;
+
+            this.coin = new Coin();
+            this.showCoin();
+        }
+    }
 
 
     //--- interval game
