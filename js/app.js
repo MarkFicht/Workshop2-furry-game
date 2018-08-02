@@ -33,9 +33,18 @@ function Game() {
     this.showCoin = function () {
         this.board[ this.index(this.coin.x, this.coin.y) ].classList.add('coin');
     }
+
+    //--- interval game
+    this.startGame = function () {
+        this.idSetIntercal = setInterval(function () {
+            console.log('text from setInterval.');
+        }, 250);
+    }
 }
 
 //-------------------- /call out/ --------------------//
 var start = new Game();
 start.showFurry();
 start.showCoin();
+
+start.startGame();
