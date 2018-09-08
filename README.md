@@ -17,4 +17,4 @@ We have counter, to check who is better :)
 
 I will add more CSS animations and sounds, for better look. For example, chose 'theme' hero of game before started, etc.
 Add Database for savings scores. 
-More mechanizm for JS, like: shorter response time at a higher level, a decreasing field with time. 
+More mechanism for JS, like: shorter response time at a higher level, a decreasing field with time. 
