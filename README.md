@@ -1,5 +1,7 @@
 # Furry Game - Simple game in JS. 
 
+[DEMO here](https://markficht.github.io/Workshop2-furry-game/)
+
 Its a small exercise to repeat: object, method, constructor, etc. :)
 
 **Furry** is a hero of game, who can move on field 10x10. To move, we have to use the arrows.
