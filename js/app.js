@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // console.log('Webpack work. Hi');
 
     var Game = require('./game.js');
-    console.log( module );
+    // console.log( module );
 
     var start = new Game();
 
