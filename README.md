@@ -22,7 +22,7 @@ Open folder with all files, and open your command prompt.
 
 I skipped file webpack.config.js - In CLI gives the output file.<br />
 If you don't have global installed webpack, execute this command:
-- `./node_modules/.bin/webpack app.js --output out.js`
+- `./node_modules/.bin/webpack js/app.js --output js/out.js`
 
 Tested on browsers: `Chrome`, `Opera`.
 

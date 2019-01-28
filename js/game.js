@@ -113,6 +113,7 @@ function Game() {
 
             this.hideVisibleFurry();
             document.querySelector('#score div').innerHTML = '<span style="color: red;">GAME OVER.</span><br>Your score: ' + this.score;
+            document.querySelector('#over').classList.remove('invisible');
         }
     }
 

@@ -6,10 +6,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
     var start = new Game();
 
+    //--- New game
     start.showFurry();
     start.showCoin();
 
     start.startGame();
+
+    //--- Play again
+    document.querySelector('#over button').addEventListener('click', function () {
+        start = new Game();
+
+        // 
+
+    });
 
 });
 
