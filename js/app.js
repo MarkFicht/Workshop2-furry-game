@@ -5,24 +5,24 @@ document.addEventListener('DOMContentLoaded', function () {
     // console.log( module );
 
     var start = new Game();
+    
+    var newGame = function (obj) {
+        obj.prepareNewBoard();
+
+        obj.showFurry();
+        obj.showCoin();
+
+        obj.startGame();
+    };
 
     //--- New game
-    start.showFurry();
-    start.showCoin();
-
-    start.startGame();
+    newGame(start);
 
     //--- Play again
     document.querySelector('#over button').addEventListener('click', function () {
         start = new Game();
 
-        start.prepareNewBoard();
-
-        start.showFurry();
-        start.showCoin();
-
-        start.startGame();
-
+        newGame(start);
     });
 
 });

@@ -14,8 +14,8 @@ function Game() {
 
     //--- index board
     this.index = function (x, y) {
-        return x + (y * 10); // x: 0-9 right, y: 0-9 down.
-    }
+        return x + (y * 10);        // x: 0-9 right, y: 0-9 down.
+    };
 
 
     //--- show points(furry & coin) on board
@@ -24,10 +24,10 @@ function Game() {
 
             this.board[ this.index(this.furry.x, this.furry.y) ].classList.add('furry');
         }
-    }
+    };
     this.showCoin = function () {
         this.board[ this.index(this.coin.x, this.coin.y) ].classList.add('coin');
-    }
+    };
 
 
     //--- hide furry on board
@@ -38,7 +38,8 @@ function Game() {
         if (hideFurry !== null) {
             hideFurry.classList.remove('furry');
         }
-    }
+    };
+
 
     //--- hide coin on board, for new game
     this.hideVisibleConin = function () {
@@ -47,7 +48,7 @@ function Game() {
         if (hideConin !== null) {
             hideConin.classList.remove('coin');
         }
-    }
+    };
 
 
     //--- furry direction and interactions
@@ -70,7 +71,7 @@ function Game() {
         this.showFurry();
         this.checkCoinCollision();
         this.gameOver();
-    }
+    };
 
 
     //--- keyboard moving
@@ -108,7 +109,7 @@ function Game() {
             this.coin = new Coin();
             this.showCoin();
         }
-    }
+    };
 
 
     //--- GAME OVER
@@ -121,26 +122,25 @@ function Game() {
             clearInterval(this.idSetInterval);
 
             this.hideVisibleFurry();
-            // this.hideVisibleConin();
 
             document.querySelector('#score strong').innerHTML = this.score;
-
-            // this.score = 0;
-            // document.querySelector('#score div').innerHTML = '<span style="color: red;">GAME OVER.</span><br>Your score: ' + this.score;
             document.querySelector('#over').classList.remove('invisible');
         }
-    }
+    };
+
 
     //--- Prepare new board
     this.prepareNewBoard = function () {
 
+        if ( document.querySelector('#over').className === 'invisible' )  {
+            return null;
+        }
+
         this.hideVisibleConin();
 
-        this.score = 0;
-        document.querySelector('#score strong').innerHTML = this.score;
-
+        document.querySelector('#score strong').innerHTML = this.score;     // Display correct points, from 0
         document.querySelector('#over').classList.add('invisible');
-    }
+    };
 
 
     //--- interval game
@@ -150,7 +150,8 @@ function Game() {
             self.moveFurry();
 
         }, 250);
-    }
-}
+    };
+
+};
 
 module.exports = Game;
