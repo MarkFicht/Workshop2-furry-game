@@ -16,7 +16,12 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelector('#over button').addEventListener('click', function () {
         start = new Game();
 
-        // 
+        start.prepareNewBoard();
+
+        start.showFurry();
+        start.showCoin();
+
+        start.startGame();
 
     });
 

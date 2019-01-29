@@ -21,7 +21,8 @@ function Game() {
     //--- show points(furry & coin) on board
     this.showFurry = function () {
         if (this.board[ this.index(this.furry.x, this.furry.y) ] !== undefined) {
-            this.board[this.index(this.furry.x, this.furry.y)].classList.add('furry');
+
+            this.board[ this.index(this.furry.x, this.furry.y) ].classList.add('furry');
         }
     }
     this.showCoin = function () {
@@ -36,6 +37,15 @@ function Game() {
 
         if (hideFurry !== null) {
             hideFurry.classList.remove('furry');
+        }
+    }
+
+    //--- hide coin on board, for new game
+    this.hideVisibleConin = function () {
+        var hideConin = document.querySelector('.coin');
+
+        if (hideConin !== null) {
+            hideConin.classList.remove('coin');
         }
     }
 
@@ -90,8 +100,7 @@ function Game() {
     this.checkCoinCollision = function () {
         if ((this.furry.x === this.coin.x) && (this.furry.y === this.coin.y)) {
 
-            var coinPosition = document.querySelector('.coin');
-            coinPosition.classList.remove('coin');
+            this.hideVisibleConin();
 
             this.score++;
             document.querySelector('#score strong').innerHTML = this.score;
@@ -112,16 +121,31 @@ function Game() {
             clearInterval(this.idSetInterval);
 
             this.hideVisibleFurry();
-            document.querySelector('#score div').innerHTML = '<span style="color: red;">GAME OVER.</span><br>Your score: ' + this.score;
+            // this.hideVisibleConin();
+
+            document.querySelector('#score strong').innerHTML = this.score;
+
+            // this.score = 0;
+            // document.querySelector('#score div').innerHTML = '<span style="color: red;">GAME OVER.</span><br>Your score: ' + this.score;
             document.querySelector('#over').classList.remove('invisible');
         }
+    }
+
+    //--- Prepare new board
+    this.prepareNewBoard = function () {
+
+        this.hideVisibleConin();
+
+        this.score = 0;
+        document.querySelector('#score strong').innerHTML = this.score;
+
+        document.querySelector('#over').classList.add('invisible');
     }
 
 
     //--- interval game
     this.startGame = function () {
         this.idSetInterval = setInterval(function () {
-            // console.log('text from setInterval.');
 
             self.moveFurry();
 
